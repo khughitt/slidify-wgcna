@@ -218,6 +218,12 @@ $$
     - Power adjacency function has the "factorization property"
         - Understanding network concepts in modules (Dong & Horvath, 2007)
 
+---
+
+## Different adjacency functions can be used to arrive at the same result
+
+![comparison of adjacency functions](assets/img/Horvath_2005_fig14.png)
+
 --- .seque .dark
 
 ## How do we select an appropriate adjacency function?
@@ -298,6 +304,12 @@ $$k_i = \sum_u{a_{iu}}$$
 </div>
 
 ---
+
+## Topological Overlap Matrix
+
+Comparison of using topological overlap with $1 - S_{ij}$.
+
+![topological overlap mds plot](assets/img/Horvath_2005_fig15.png)
 
 ## Clustering
 
