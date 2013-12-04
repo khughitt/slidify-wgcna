@@ -1,5 +1,5 @@
 ---
-title       : A General Framework For Weighted Gene co-Expression Network Analysis
+title       : A General Framework For Weighted Gene Co-Expression Network Analysis
 subtitle    : Bin Zhang & Steve Horvath
 author      : Keith Hughitt
 job         : 
@@ -36,7 +36,26 @@ $(function() {
 </script>
 
 <!-- Slides start here -->
-## Overview
+## Background
+
+---
+
+## Types of Molecular Biological Networks
+
+> 1. Cell signalling networks
+> 2. Metabolic networks
+> 3. Protein-protein interaction networks
+> 4. Co-expression networks
+> Basic goal: understand cellular phenomena at a systems scale.
+
+---
+
+## Co-expression Network
+
+>- **M. Eisen (1998)** Clusters of co-expressed genes tend to have similar
+   function in yeast.
+>- Mutual information relevance networks: functional genomic clustering using
+   pairwise entropy measurements (**Butte and Kohane (2000)**)
 
 ---
 
@@ -91,6 +110,10 @@ higher this value will be (max=1).
 
 By applying the metric to each pair of genes in the dataset, an $n \times n$
 similarity matrix is produced.
+
+-Questions: Is pearson correlation a good measure of similarity at small $n$?
+ How would the matrix look if we preserved the sign of the correlation
+ coefficient?
 
 ---
 
