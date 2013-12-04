@@ -1,4 +1,5 @@
-Journal club presentation on WGCNA.
+Journal club presentation on
+[WGCNA](http://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/).
 
 References
 ----------

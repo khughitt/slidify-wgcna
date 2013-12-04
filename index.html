@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A General Framework For Weighted Gene co-Expression Network Analysis</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A General Framework For Weighted Gene co-Expression Network Analysis">
+  <meta name="author" content="Keith Hughitt">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>A General Framework For Weighted Gene co-Expression Network Analysis</h1>
+        <h2>Bin Zhang &amp; Steve Horvath</h2>
+        <p>Keith Hughitt<br/></p>
+      </hgroup>
+      <a href="https://github.com/khughitt/slidify-wgcna/zipball/gh-pages" class="example">
+        Download
+      </a>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="segue dark" id="slide-1" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <!-- Custom Styles -->
+
+<style type='text/css'>
+    slides > slide {
+        height: 800px;
+        margin-top: -400px;
+    }
+    img {
+        max-height: 560px;
+        max-width: 964px;
+    }
+    slide a {border-bottom: none;}
+    .references li { font-size: 18px; }
+</style>
+
+<!-- Custom JavaScript -->
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+
+<script type='text/javascript'>
+$(function() {
+    $("p:has(img)").addClass('centered');
+});
+</script>
+
+<!-- Slides start here -->
+
+<h2>Overview</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>WGCNA Overview</h2>
+  </hgroup>
+  <article>
+    <p><img src="assets/img/wgcna_overview.jpg" alt="WGCNA overview"></p>
+
+<div style='float: right; width: 38%; font-size: 12px;'>(Langfelder & Horvath, 2008)</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Constructing a co-expression network</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li>Choose a <span class='blue'>similarity metric</span>, construct a similarity
+matrix <span class='blue'>\(S\)</span>.</li>
+<li>Choose an <span class='blue'>adjacency function</span> (e.g. signum/power)</li>
+<li>Use adjacency function to map from similarity matrix, 
+<span class='blue'>\(S\)</span> to adjacency matrix, <span class='blue'>\(A\)</span>.</li>
+</ol>
+
+<h2>Module detection</h2>
+
+<p>Once a co-expression network has been constructed, WGCNA can be used to detect
+module of genes with similar expression profiles.</p>
+
+<ol>
+<li>Choose a <span class='blue'>node dissimilarity</span> measure.</li>
+<li>Example: 1 - correlation</li>
+<li>WGCNA method: <span class='blue'>1 - Topological Overlap</span></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Constructing a co-expression network</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Similarity matrix</h2>
+  </hgroup>
+  <article>
+    <p>The first step is to choose a similarity metric, e.g. |Pearson correlation|,
+and use it to construct a similarity matrix, \(S\).</p>
+
+<p>\[
+s_{ij} = |cor(i, j)|
+\]</p>
+
+<p>Where</p>
+
+<p>\[
+cor(X, Y) = \rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}
+\]</p>
+
+<p>The more similar a pair of gene&#39;s expression profiles are across time, the
+higher this value will be (max=1).</p>
+
+<p>By applying the metric to each pair of genes in the dataset, an \(n \times n\)
+similarity matrix is produced.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Similarity matrix</h2>
+  </hgroup>
+  <article>
+    <p>Heatmap for 250 most highly expressed genes.
+<img src="figure/correlation_matrix.png" alt="Correlation matrix"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Adjacency matrix</h2>
+  </hgroup>
+  <article>
+    <p>Once a similarity matrix has been constructed, this is converted into an
+<a href="http://en.wikipedia.org/wiki/Adjacency_matrix">adjaceny matrix</a>, which defines 
+the co-expression graph or network.</p>
+
+<p>An <span class='blue'>adjacency function</span> is chosen which maps from
+<span class='blue2'>co-expression similarities</span> to </span class='blue2'>
+edge weights</span>.</p>
+
+<p>There are two major types of adjacency functions, the choice of which
+determines whether the resulting network will be weighted or unweighted.</p>
+
+<ol>
+<li><span class='red'>Unweighted (hard threshold)</span>
+
+<ul>
+<li>Remove all edges below a certain similarity cutoff; set everything else to 1.</li>
+<li><a href="http://en.wikipedia.org/wiki/Signum_function">Sign (signum) function</a></li>
+</ul></li>
+<li><span class='red'>Weighted (soft threshold)</span>
+
+<ul>
+<li>Choose a function which maps from \((0,1)\) to \((0,1)\).</li>
+<li><a href="http://en.wikipedia.org/wiki/Sigmoid_function">Sigmoid function</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Power_function">Power function</a></li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Unweighted Network</h2>
+  </hgroup>
+  <article>
+    <p>Signum Function</p>
+
+<div style='font-size: 14px;'>
+ $$ a_{ij} = signum(s_{ij}, \tau) \equiv
+   \left\{ 
+      \begin{array}{l l}
+        1 & \quad \text{if}\ s_{ij} \ge \tau\\
+        0 & \quad \text{if}\ s_{ij} \lt \tau
+   \end{array} \right.
+ $$
+</div>
+
+<p><img src="figure/signum_plot.png" alt="plot of chunk signum_plot"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Weighted Network</h2>
+  </hgroup>
+  <article>
+    <p>Sigmoid Function</p>
+
+<div style='font-size: 16px;'>
+$$
+a_{ij} = sigmoid(s_{ij}, \alpha, \tau_0) \equiv \frac{1}{1 + e^{-\alpha(s_{ij} - \tau_0)}}
+$$
+</div>
+
+<p><img src="figure/sigmoid_plot.png" alt="plot of chunk sigmoid_plot"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Weighted Network</h2>
+  </hgroup>
+  <article>
+    <p>Power Function</p>
+
+<div style='font-size: 16px;'>
+$$
+  a_{ij} = power(s_{ij}, \beta) \equiv |s_{ij}|^\beta
+$$
+</div>
+
+<p><img src="figure/power_plot.png" alt="plot of chunk power_plot"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="seque dark" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>How do we select an appropriate adjacency function?</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Scale-free networks</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Many biological networks (including co-expression networks) are thought to
+follow a <a href="https://en.wikipedia.org/wiki/Power_law">power law distribution</a><sup>1.</sup></li>
+<li>For co-expression networks with genes as nodes, the degree distribution \(p(k)\)
+for genes follows:
+\[
+p(k) \sim k^{-\gamma}
+\]
+where \(k\) is the number of connections to other genes.</li>
+<li>Networks which follow this degree distribution are referred to as &quot;scale-free&quot;.</li>
+<li>Scale-free networks are <span class='blue'>robust to errors</span>, however,</li>
+<li>They are also <span class='blue'>vulnerable to attack</span> at particular 
+nodes (good for us!).</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Scale-free networks</h2>
+  </hgroup>
+  <article>
+    <p>The exponent \(\gamma\) determines how quickly the distribution decays,
+for example:</p>
+
+<p><img src="figure/powerlaw_plot1.png" alt="plot of chunk powerlaw_plot1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Scale-free networks</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>This property of biological networks can be used by us to help guide our
+selection of an adjacency function and parameters.</li>
+<li>The goal then becomes selecting a function and parameters such that the
+resulting co-expression network has the scale-free property.</li>
+</ul>
+
+<p><img src="figure/choose_threshold.png" alt="threshold selection"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Module detection</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Clustering gene expression profiles</h2>
+  </hgroup>
+  <article>
+    <p>K-means clustering of T. cruzi RNA-Seq time-course data.
+<img src="assets/img/tcruzi_cluster_1.png" alt="module detection"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Topological Overlap Matrix</h2>
+  </hgroup>
+  <article>
+    <ul class = "build">
+<li>The preferred method used by WGCNA to cluster gene expression profiles is
+to first construct a similarity matrix using a measure called Topological
+Overlap.</li>
+<li>Topological overlap -&gt; interconnectedness between two genes</li>
+<li>The resulting Topological Overlap Matrix (TOM) is then subtracted from
+one to obtain a dissimilarity measure which can be used for clustering.</li>
+<li>TOM \(\Omega = [\omega_{ij}]\)
+<div class='blue'>
+\[
+\omega_{ij} = \frac{l_{ij} + a_{ij}}{\min{\{k_i, k_j\}} + 1 - a_{ij}}
+\]
+</div>
+Where
+<div class='blue'>
+\[l_{ij} = \sum_u{a_{iu}a_{uj}}\]
+</div>
+And
+<div class='blue'>
+\[k_i = \sum_u{a_{iu}}\]</li>
+</ul>
+
+<p></div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Clustering</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><a href="http://en.wikipedia.org/wiki/Hierarchical_clustering#Linkage_criteria">Average linkage hierarchical clustering</a>
+used to group genes based on their TOM dissimilarity.</li>
+<li>Gene modules then correspond to branches in the hierarchical clustering
+dendrogram.</li>
+<li>Smaller power law exponent: fewer modules, more genes</li>
+<li>Larger power law exponent: more modules, fewer genes</li>
+<li>For me: ~5-25 modules on average, depending on params.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>TOM Plot</h2>
+  </hgroup>
+  <article>
+    <p>TOM Plot can help us to visualize gene modules: red blocks along the diagonal
+correspond to clusters of genes with a high topological overlap. These are our
+clusters.</p>
+
+<p><img src="figure/network_visualization_all.png" alt="TOM plot"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Module Eigengenes</h2>
+  </hgroup>
+  <article>
+    <p>Module eigengenes can be computed and a dendrodram of the eigengenes can be
+constructed and used to guide the merging of similar modules.</p>
+
+<p><img src="figure/eigengene_visualization.png" alt="Module eigengenes"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Comparison to other clustering methods</h2>
+  </hgroup>
+  <article>
+    <p>When comparing the results of WGCNA module detection to other commonly used
+clustering methods, the results can be very different.</p>
+
+<p><img src="figure/combine_modules.png" alt="Module dendrogram"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Exporting the network for visualization</h2>
+  </hgroup>
+  <article>
+    <p>In order to visualize the network in another application such as 
+<a href="http://www.cytoscape.org/">Cytoscape</a>, it is first necessary to choose a
+cutoff for which edges should be included.</p>
+
+<ul>
+<li>A <span class='blue'>Low cutoff</span> (e.g. topological overlap &gt;= 0.15) will
+result in many edges and become very difficult to work with.</li>
+<li>A <span class='blue'>High cutoff</span> (e.g. 0.55) will have fewer edges, 
+but can still be in the tens or hundreds of thousands, and we may have lost 
+some important edges.</li>
+</ul>
+
+<p>Alternatively, network modules can also be exported and visualized in isolation
+with a higher cutoff value, however, inter-module edges will not lost in this
+case.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
