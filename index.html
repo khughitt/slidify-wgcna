@@ -280,12 +280,10 @@ determines whether the resulting network will be weighted or unweighted.</p>
 
       <slide class="" id="slide-10" style="background:;">
   <hgroup>
-    <h2>Unweighted Network</h2>
+    <h2>Signum Function (Unweighted Network)</h2>
   </hgroup>
   <article>
-    <p>Signum Function</p>
-
-<div style='font-size: 14px;'>
+    <div style='font-size: 14px;'>
  $$ a_{ij} = signum(s_{ij}, \tau) \equiv
    \left\{ 
       \begin{array}{l l}
@@ -303,12 +301,10 @@ determines whether the resulting network will be weighted or unweighted.</p>
 
       <slide class="" id="slide-11" style="background:;">
   <hgroup>
-    <h2>Weighted Network</h2>
+    <h2>Sigmoid Function (Weighted Network)</h2>
   </hgroup>
   <article>
-    <p>Sigmoid Function</p>
-
-<div style='font-size: 16px;'>
+    <div style='font-size: 16px;'>
 $$
 a_{ij} = sigmoid(s_{ij}, \alpha, \tau_0) \equiv \frac{1}{1 + e^{-\alpha(s_{ij} - \tau_0)}}
 $$
@@ -322,12 +318,10 @@ $$
 
       <slide class="" id="slide-12" style="background:;">
   <hgroup>
-    <h2>Weighted Network</h2>
+    <h2>Power Function (Weighted Network)</h2>
   </hgroup>
   <article>
-    <p>Power Function</p>
-
-<div style='font-size: 16px;'>
+    <div style='font-size: 16px;'>
 $$
   a_{ij} = power(s_{ij}, \beta) \equiv |s_{ij}|^\beta
 $$
@@ -339,7 +333,32 @@ $$
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-13" style="background:;">
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Power Function (Weighted Network)</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>WGCNA uses the power function by default to map from the similarity matrix
+to an adjacency matrix.</li>
+<li>Why?:
+
+<ul>
+<li>Sigmoid and power function results in similar adjacency matrices if
+parameters are chosen based on same criterion (discussed next).</li>
+<li>Power adjacency function has the &quot;factorization property&quot;
+
+<ul>
+<li>Understanding network concepts in modules (Dong &amp; Horvath, 2007)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="seque dark" id="slide-14" style="background:;">
   <hgroup>
     <h2>How do we select an appropriate adjacency function?</h2>
   </hgroup>
@@ -349,7 +368,7 @@ $$
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-14" style="background:;">
+      <slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -373,7 +392,7 @@ nodes (good for us!).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-15" style="background:;">
+      <slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -387,7 +406,7 @@ for example:</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -405,7 +424,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-17" style="background:;">
+      <slide class="segue dark" id="slide-18" style="background:;">
   <hgroup>
     <h2>Module detection</h2>
   </hgroup>
@@ -415,7 +434,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Clustering gene expression profiles</h2>
   </hgroup>
@@ -427,7 +446,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -460,7 +479,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Clustering</h2>
   </hgroup>
@@ -479,7 +498,7 @@ dendrogram.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>TOM Plot</h2>
   </hgroup>
@@ -494,7 +513,7 @@ clusters.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Module Eigengenes</h2>
   </hgroup>
@@ -508,7 +527,7 @@ constructed and used to guide the merging of similar modules.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Comparison to other clustering methods</h2>
   </hgroup>
@@ -522,37 +541,40 @@ clustering methods, the results can be very different.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
-    <h2>Exporting the network for visualization</h2>
+    <h2>Network Visualization</h2>
   </hgroup>
   <article>
-    <p>In order to visualize the network in another application such as 
-<a href="http://www.cytoscape.org/">Cytoscape</a>, it is first necessary to choose a
-cutoff for which edges should be included.</p>
+    <h3>Problem</h3>
 
 <ul>
-<li>A <span class='blue'>Low cutoff</span> (e.g. topological overlap &gt;= 0.15) will
-result in many edges and become very difficult to work with.</li>
-<li>A <span class='blue'>High cutoff</span> (e.g. 0.55) will have fewer edges, 
-but can still be in the tens or hundreds of thousands, and we may have lost 
-some important edges.</li>
+<li>Estimate hard threshold cutoff and use that when exporting network for
+visualization!</li>
+<li>In order the visualize the network using something like Cytoscape, a hard
+threshold has to be chosen to limit the number of edges.</li>
+<li>Since the adjacency function is monotonically increasing, however, this
+in effect gives us the same network as if we had used hard-thresholding
+to begin with.</li>
 </ul>
-
-<p>Alternatively, network modules can also be exported and visualized in isolation
-with a higher cutoff value, however, inter-module edges will not lost in this
-case.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-26" style="background:;">
   <hgroup>
-    <h2>References</h2>
+    <h2>Other topics to discuss (time permitting):</h2>
   </hgroup>
   <article>
-    <ul>
+    <ol>
+<li>Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)</li>
+<li>Alternatives to correlation networks (partial correlations, etc.)</li>
+</ol>
+
+<h2>References</h2>
+
+<ul>
 <li><p>Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a></p></li>
 <li><p>Mutual information relevance networks: functional genomic clustering using
 pairwise entropy measurements. Butte AJ, Kohane IS. (2000)</p></li>

@@ -167,8 +167,7 @@ determines whether the resulting network will be weighted or unweighted.
 
 ---
 
-## Unweighted Network
-Signum Function
+## Signum Function (Unweighted Network)
 <div style='font-size: 14px;'>
  $$ a_{ij} = signum(s_{ij}, \tau) \equiv
    \left\{ 
@@ -189,8 +188,7 @@ title("Signum function (tau=0.5)")
 
 ---
 
-## Weighted Network
-Sigmoid Function
+## Sigmoid Function (Weighted Network)
 <div style='font-size: 16px;'>
 $$
 a_{ij} = sigmoid(s_{ij}, \alpha, \tau_0) \equiv \frac{1}{1 + e^{-\alpha(s_{ij} - \tau_0)}}
@@ -209,8 +207,7 @@ title("Sigmoid function (alpha=6, tau=0.5)")
 
 ---
 
-## Weighted Network
-Power Function
+## Power Function (Weighted Network)
 
 <div style='font-size: 16px;'>
 $$
@@ -229,6 +226,19 @@ plot(x, y, 'l', col='blue')
 lines(x, y_signum, lty=2)
 title('Power function (beta=4)')
 ```
+
+---
+
+## Power Function (Weighted Network)
+
+- WGCNA uses the power function by default to map from the similarity matrix
+  to an adjacency matrix.
+- Why?:
+    - Sigmoid and power function results in similar adjacency matrices if
+      parameters are chosen based on same criterion (discussed next).
+    - Power adjacency function has the "factorization property"
+        - Understanding network concepts in modules (Dong & Horvath, 2007)
+
 --- .seque .dark
 
 ## How do we select an appropriate adjacency function?
@@ -359,23 +369,24 @@ clustering methods, the results can be very different.
 
 ---
 
-## Exporting the network for visualization
+## Network Visualization
 
-In order to visualize the network in another application such as 
-[Cytoscape](http://www.cytoscape.org/), it is first necessary to choose a
-cutoff for which edges should be included.
+### Problem
 
-- A <span class='blue'>Low cutoff</span> (e.g. topological overlap >= 0.15) will
-  result in many edges and become very difficult to work with.
-- A <span class='blue'>High cutoff</span> (e.g. 0.55) will have fewer edges, 
-  but can still be in the tens or hundreds of thousands, and we may have lost 
-  some important edges.
-
-Alternatively, network modules can also be exported and visualized in isolation
-with a higher cutoff value, however, inter-module edges will not lost in this
-case.
+- Estimate hard threshold cutoff and use that when exporting network for
+  visualization!
+- In order the visualize the network using something like Cytoscape, a hard
+  threshold has to be chosen to limit the number of edges.
+- Since the adjacency function is monotonically increasing, however, this
+  in effect gives us the same network as if we had used hard-thresholding
+  to begin with.
 
 ---
+
+## Other topics to discuss (time permitting):
+
+1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
+2. Alternatives to correlation networks (partial correlations, etc.)
 
 
 References
