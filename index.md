@@ -42,20 +42,35 @@ $(function() {
 
 ## Types of Molecular Biological Networks
 
-> 1. Cell signalling networks
-> 2. Metabolic networks
-> 3. Protein-protein interaction networks
-> 4. Co-expression networks
-> Basic goal: understand cellular phenomena at a systems scale.
+1. Cell signalling networks
+2. Metabolic networks
+3. Protein-protein interaction networks
+4. Co-expression networks
+
+**Basic goal**: understand cellular phenomena at a systems scale.
 
 ---
 
 ## Co-expression Network
 
->- **M. Eisen (1998)** Clusters of co-expressed genes tend to have similar
-   function in yeast.
->- Mutual information relevance networks: functional genomic clustering using
-   pairwise entropy measurements (**Butte and Kohane (2000)**)
+### M. Eisen (1998)
+- Clusters of co-expressed genes tend to have similar function in yeast.
+### Butte & Kohane (2000)
+- Mutual information relevance networks: functional genomic clustering using
+  pairwise entropy measurements (**Butte and Kohane (2000)**)
+  - First co-expression networks
+  - Mutual Information used as similarity measure
+  - Edges determined via hard cutoff
+### Zhang & Horvath (2005)
+<div class='blue'>
+- WGCNA
+  - Soft-threshold (weighted network)
+  - Pearson correlation used as similarity measure by default
+  - Also attempts to find functional modules in networks
+</div>
+
+### Hong et al (2013)
+- Canonical correlation analysis for RNA-seq co-expression networks.
 
 ---
 
@@ -92,6 +107,7 @@ module of genes with similar expression profiles.
 
 ## Similarity matrix
 
+### Overview
 The first step is to choose a similarity metric, e.g. |Pearson correlation|,
 and use it to construct a similarity matrix, $S$.
 
@@ -110,6 +126,10 @@ higher this value will be (max=1).
 
 By applying the metric to each pair of genes in the dataset, an $n \times n$
 similarity matrix is produced.
+
+### Alternative similarity measures
+- Jacknifed correlation coefficient
+- $\frac{2 + cor(i, j)}{2}$
 
 -Questions: Is pearson correlation a good measure of similarity at small $n$?
  How would the matrix look if we preserved the sign of the correlation
@@ -327,4 +347,14 @@ case.
 ---
 
 
+References
+----------
 
+
+
+
+
+- Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a>
+
+- Mutual information relevance networks: functional genomic clustering using
+pairwise entropy measurements. Butte AJ, Kohane IS. (2000)

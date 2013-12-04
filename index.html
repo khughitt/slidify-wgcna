@@ -85,13 +85,14 @@ $(function() {
     <h2>Types of Molecular Biological Networks</h2>
   </hgroup>
   <article>
-    <ol class = "build">
+    <ol>
 <li>Cell signalling networks</li>
 <li>Metabolic networks</li>
 <li>Protein-protein interaction networks</li>
-<li>Co-expression networks
-Basic goal: understand cellular phenomena at a systems scale.</li>
+<li>Co-expression networks</li>
 </ol>
+
+<p><strong>Basic goal</strong>: understand cellular phenomena at a systems scale.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -102,11 +103,35 @@ Basic goal: understand cellular phenomena at a systems scale.</li>
     <h2>Co-expression Network</h2>
   </hgroup>
   <article>
-    <ul class = "build">
-<li><strong>M. Eisen (1998)</strong> Clusters of co-expressed genes tend to have similar
-function in yeast.</li>
+    <h3>M. Eisen (1998)</h3>
+
+<ul>
+<li>Clusters of co-expressed genes tend to have similar function in yeast.
+### Butte &amp; Kohane (2000)</li>
 <li>Mutual information relevance networks: functional genomic clustering using
-pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)</li>
+pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
+
+<ul>
+<li>First co-expression networks</li>
+<li>Mutual Information used as similarity measure</li>
+<li>Edges determined via hard cutoff
+### Zhang &amp; Horvath (2005)
+<div class='blue'></li>
+</ul></li>
+<li>WGCNA
+
+<ul>
+<li>Soft-threshold (weighted network)</li>
+<li>Pearson correlation used as similarity measure by default</li>
+<li>Also attempts to find functional modules in networks
+</div></li>
+</ul></li>
+</ul>
+
+<h3>Hong et al (2013)</h3>
+
+<ul>
+<li>Canonical correlation analysis for RNA-seq co-expression networks.</li>
 </ul>
 
   </article>
@@ -169,7 +194,9 @@ module of genes with similar expression profiles.</p>
     <h2>Similarity matrix</h2>
   </hgroup>
   <article>
-    <p>The first step is to choose a similarity metric, e.g. |Pearson correlation|,
+    <h3>Overview</h3>
+
+<p>The first step is to choose a similarity metric, e.g. |Pearson correlation|,
 and use it to construct a similarity matrix, \(S\).</p>
 
 <p>\[
@@ -187,6 +214,13 @@ higher this value will be (max=1).</p>
 
 <p>By applying the metric to each pair of genes in the dataset, an \(n \times n\)
 similarity matrix is produced.</p>
+
+<h3>Alternative similarity measures</h3>
+
+<ul>
+<li>Jacknifed correlation coefficient</li>
+<li>\(\frac{2 + cor(i, j)}{2}\)</li>
+</ul>
 
 <p>-Questions: Is pearson correlation a good measure of similarity at small \(n\)?
  How would the matrix look if we preserved the sign of the correlation
@@ -515,10 +549,15 @@ case.</p>
 
       <slide class="" id="slide-25" style="background:;">
   <hgroup>
-    
+    <h2>References</h2>
   </hgroup>
   <article>
-    
+    <ul>
+<li><p>Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a></p></li>
+<li><p>Mutual information relevance networks: functional genomic clustering using
+pairwise entropy measurements. Butte AJ, Kohane IS. (2000)</p></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
