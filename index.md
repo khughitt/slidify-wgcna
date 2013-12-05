@@ -412,7 +412,9 @@ clustering methods, the results can be very different.
 
 ---
 
-## Other topics to discuss (time permitting):
+## Other topics to discuss
+
+## Today (time permitting)
 
 1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
 2. Alternatives to correlation networks (partial correlations, etc.)
@@ -421,6 +423,18 @@ clustering methods, the results can be very different.
    - choosing branch height to cut at (e.g. Dynamic Tree Cut)
    - Fuzzy module membership
 
+## Future meetings
+
+1. Alternative methods of co-expression network analysis
+    - Canonical correlation analysis for RNA-seq co-expression networks.
+    - PGMs.
+2. Deeper look at the network concepts underlying this paper
+    - Gene network interconnected and the generalized topological overlap
+      measure (Yip & Horvath, 2007)
+    - Geometric Interpretation of Gene Coexpression Network Analysis (Horvath
+      & Dong, 2008)
+
+---
 
 References
 ----------
@@ -431,5 +445,5 @@ References
 
 - Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a>
 
-- Mutual information relevance networks: functional genomic clustering using
-pairwise entropy measurements. Butte AJ, Kohane IS. (2000)
+- Butte AJ, Kohane IS. (2000) Mutual information relevance networks: functional
+  genomic clustering using pairwise entropy measurements
