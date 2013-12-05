@@ -51,7 +51,7 @@ $(function() {
 
 ---
 
-## Co-expression Network
+## Co-expression Networks
 
 ### M. Eisen (1998)
 - Clusters of co-expressed genes tend to have similar function in yeast.
@@ -62,6 +62,10 @@ $(function() {
   - First co-expression networks
   - Mutual Information used as similarity measure
   - Edges determined via hard cutoff
+
+---
+
+## Co-expression Networks
 
 ### Zhang & Horvath (2005)
 - WGCNA
@@ -96,7 +100,7 @@ Once a co-expression network has been constructed, WGCNA can be used to detect
 module of genes with similar expression profiles.
 
 1. Choose a <span class='blue'>node dissimilarity</span> measure.
-    - e.g.: 1 - correlation
+    - Common approach: 1 - Correlation
     - WGCNA method: <span class='blue'>1 - Topological Overlap</span>
 2. Use hierarchical clustering to construct a dendrogram.
 3. Modules reflect dense branches on the dendrogram.
@@ -263,7 +267,7 @@ title('Power function (beta=4)')
 ## Scale-free networks
 
 - Many biological networks (including co-expression networks) are thought to
-follow a [power law distribution](https://en.wikipedia.org/wiki/Power_law)^1.
+follow a [power law distribution](https://en.wikipedia.org/wiki/Power_law).
 - For co-expression networks with genes as nodes, the degree distribution $p(k)$
 for genes follows:
 $$
@@ -306,6 +310,11 @@ title('gamma = 10')
 
 ![threshold selection](assets/img/choose_threshold.png)
 
+## Scale-free networks
+
+Evaluating the fit using a  log-log plot.
+
+![scale-free fit](assets/img/scale-free-fit2.png)
 
 ---
 

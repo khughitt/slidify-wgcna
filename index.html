@@ -100,7 +100,7 @@ $(function() {
 
       <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Co-expression Network</h2>
+    <h2>Co-expression Networks</h2>
   </hgroup>
   <article>
     <h3>M. Eisen (1998)</h3>
@@ -122,7 +122,16 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
 </ul></li>
 </ul>
 
-<h3>Zhang &amp; Horvath (2005)</h3>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Co-expression Networks</h2>
+  </hgroup>
+  <article>
+    <h3>Zhang &amp; Horvath (2005)</h3>
 
 <ul>
 <li>WGCNA
@@ -144,7 +153,7 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-4" style="background:;">
+      <slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>WGCNA Overview</h2>
   </hgroup>
@@ -157,7 +166,7 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-5" style="background:;">
+      <slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Constructing a co-expression network</h2>
   </hgroup>
@@ -179,7 +188,7 @@ module of genes with similar expression profiles.</p>
 <li>Choose a <span class='blue'>node dissimilarity</span> measure.
 
 <ul>
-<li>e.g.: 1 - correlation</li>
+<li>Common approach: 1 - Correlation</li>
 <li>WGCNA method: <span class='blue'>1 - Topological Overlap</span></li>
 </ul></li>
 <li>Use hierarchical clustering to construct a dendrogram.</li>
@@ -190,7 +199,7 @@ module of genes with similar expression profiles.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-6" style="background:;">
+      <slide class="segue dark" id="slide-7" style="background:;">
   <hgroup>
     <h2>Constructing a co-expression network</h2>
   </hgroup>
@@ -200,7 +209,7 @@ module of genes with similar expression profiles.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-7" style="background:;">
+      <slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
@@ -235,7 +244,7 @@ similarity matrix is produced.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-8" style="background:;">
+      <slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
@@ -261,7 +270,7 @@ coefficient?</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-9" style="background:;">
+      <slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
@@ -297,7 +306,7 @@ determines whether the resulting network will be weighted or unweighted.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-10" style="background:;">
+      <slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Signum Function (Unweighted Network)</h2>
   </hgroup>
@@ -318,7 +327,7 @@ determines whether the resulting network will be weighted or unweighted.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-11" style="background:;">
+      <slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Sigmoid Function (Weighted Network)</h2>
   </hgroup>
@@ -335,7 +344,7 @@ $$
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-12" style="background:;">
+      <slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Power Function (Weighted Network)</h2>
   </hgroup>
@@ -352,7 +361,7 @@ $$
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-13" style="background:;">
+      <slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Power Function (Weighted Network)</h2>
   </hgroup>
@@ -378,7 +387,7 @@ parameters are chosen based on same criterion (discussed next).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-14" style="background:;">
+      <slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Different adjacency functions can be used to arrive at the same result</h2>
   </hgroup>
@@ -389,7 +398,7 @@ parameters are chosen based on same criterion (discussed next).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-15" style="background:;">
+      <slide class="seque dark" id="slide-16" style="background:;">
   <hgroup>
     <h2>How do we select an appropriate adjacency function?</h2>
   </hgroup>
@@ -399,14 +408,14 @@ parameters are chosen based on same criterion (discussed next).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
   <article>
     <ul>
 <li>Many biological networks (including co-expression networks) are thought to
-follow a <a href="https://en.wikipedia.org/wiki/Power_law">power law distribution</a><sup>1.</sup></li>
+follow a <a href="https://en.wikipedia.org/wiki/Power_law">power law distribution</a>.</li>
 <li>For co-expression networks with genes as nodes, the degree distribution \(p(k)\)
 for genes follows:
 \[
@@ -423,7 +432,7 @@ nodes (good for us!).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -437,7 +446,7 @@ for example:</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -451,11 +460,17 @@ resulting co-expression network has the scale-free property.</li>
 
 <p><img src="assets/img/choose_threshold.png" alt="threshold selection"></p>
 
+<h2>Scale-free networks</h2>
+
+<p>Evaluating the fit using a  log-log plot.</p>
+
+<p><img src="assets/img/scale-free-fit2.png" alt="scale-free fit"></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -488,7 +503,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -501,7 +516,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-21" style="background:;">
+      <slide class="seque dark" id="slide-22" style="background:;">
   <hgroup>
     <h2>What we have so far...</h2>
   </hgroup>
@@ -511,7 +526,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
@@ -523,7 +538,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
@@ -535,7 +550,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Topological overlap matrix</h2>
   </hgroup>
@@ -547,7 +562,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-25" style="background:;">
+      <slide class="segue dark" id="slide-26" style="background:;">
   <hgroup>
     <h2>Module detection</h2>
   </hgroup>
@@ -557,7 +572,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+      <slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Clustering gene expression profiles</h2>
   </hgroup>
@@ -571,7 +586,7 @@ give us a picture of what we are doing.)</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Clustering</h2>
   </hgroup>
@@ -590,7 +605,7 @@ dendrogram.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>TOM Plot</h2>
   </hgroup>
@@ -605,7 +620,7 @@ clusters.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Module Eigengenes</h2>
   </hgroup>
@@ -619,7 +634,7 @@ constructed and used to guide the merging of similar modules.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Comparison to other clustering methods</h2>
   </hgroup>
@@ -633,7 +648,7 @@ clustering methods, the results can be very different.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Network Visualization</h2>
   </hgroup>
@@ -654,7 +669,7 @@ to begin with.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+      <slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Other topics to discuss (time permitting):</h2>
   </hgroup>
