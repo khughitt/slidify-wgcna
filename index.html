@@ -460,9 +460,16 @@ resulting co-expression network has the scale-free property.</li>
 
 <p><img src="assets/img/choose_threshold.png" alt="threshold selection"></p>
 
-<h2>Scale-free networks</h2>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<p>Evaluating the fit using a  log-log plot.</p>
+      <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Scale-free networks</h2>
+  </hgroup>
+  <article>
+    <p>Evaluating the fit using a  log-log plot.</p>
 
 <p><img src="assets/img/scale-free-fit2.png" alt="scale-free fit"></p>
 
@@ -470,7 +477,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -479,7 +486,7 @@ resulting co-expression network has the scale-free property.</li>
 <li>The preferred method used by WGCNA to cluster gene expression profiles is
 to first construct a similarity matrix using a measure called Topological
 Overlap.</li>
-<li>Topological overlap -&gt; interconnectedness between two genes</li>
+<li>Topological overlap \(\sim\) interconnectedness between two genes</li>
 <li>The resulting Topological Overlap Matrix (TOM) is then subtracted from
 one to obtain a dissimilarity measure which can be used for clustering.</li>
 <li>TOM \(\Omega = [\omega_{ij}]\)
@@ -494,16 +501,17 @@ Where
 </div>
 And
 <div class='blue'>
-\[k_i = \sum_u{a_{iu}}\]</li>
+\[k_i = \sum_u{a_{iu}}\]
+</div></li>
 </ul>
 
-<p></div></p>
+<p>(\(l_{ij} \approx\) shared neighbors, \(k_i =\) how connect \(i\) is itself)</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -516,7 +524,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-22" style="background:;">
+      <slide class="seque dark" id="slide-23" style="background:;">
   <hgroup>
     <h2>What we have so far...</h2>
   </hgroup>
@@ -526,7 +534,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
@@ -538,7 +546,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
@@ -550,7 +558,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Topological overlap matrix</h2>
   </hgroup>
@@ -562,7 +570,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-26" style="background:;">
+      <slide class="segue dark" id="slide-27" style="background:;">
   <hgroup>
     <h2>Module detection</h2>
   </hgroup>
@@ -572,7 +580,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Clustering gene expression profiles</h2>
   </hgroup>
@@ -586,7 +594,7 @@ give us a picture of what we are doing.)</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Clustering</h2>
   </hgroup>
@@ -605,7 +613,7 @@ dendrogram.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>TOM Plot</h2>
   </hgroup>
@@ -620,7 +628,7 @@ clusters.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Module Eigengenes</h2>
   </hgroup>
@@ -634,7 +642,7 @@ constructed and used to guide the merging of similar modules.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Comparison to other clustering methods</h2>
   </hgroup>
@@ -648,7 +656,7 @@ clustering methods, the results can be very different.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+      <slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Network Visualization</h2>
   </hgroup>
@@ -669,12 +677,12 @@ to begin with.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-33" style="background:;">
+      <slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Other topics to discuss</h2>
   </hgroup>
   <article>
-    <h2>Today (time permitting)</h2>
+    <h3>Today (time permitting)</h3>
 
 <ol>
 <li>Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)</li>
@@ -688,7 +696,7 @@ to begin with.</li>
 </ul></li>
 </ol>
 
-<h2>Future meetings</h2>
+<h3>Future meetings</h3>
 
 <ol>
 <li>Alternative methods of co-expression network analysis
@@ -711,12 +719,13 @@ measure (Yip &amp; Horvath, 2007)</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-34" style="background:;">
+      <slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
   <article>
     <ul>
+<li>Peter Langfelder, Steve Horvath,   (2008) Wgcna: an R Package For Weighted Correlation Network Analysis.  <em>Bmc Bioinformatics</em>  <strong>9</strong>  559-NA  <a href="http://dx.doi.org/10.1186/1471-2105-9-559">10.1186/1471-2105-9-559</a></li>
 <li><p>Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a></p></li>
 <li><p>Butte AJ, Kohane IS. (2000) Mutual information relevance networks: functional
 genomic clustering using pairwise entropy measurements</p></li>

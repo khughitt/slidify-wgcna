@@ -279,6 +279,8 @@ for example:
 
 ![threshold selection](assets/img/choose_threshold.png)
 
+---
+
 ## Scale-free networks
 
 Evaluating the fit using a  log-log plot.
@@ -292,7 +294,7 @@ Evaluating the fit using a  log-log plot.
 >- The preferred method used by WGCNA to cluster gene expression profiles is
 to first construct a similarity matrix using a measure called Topological
 Overlap.
->- Topological overlap -> interconnectedness between two genes
+>- Topological overlap $\sim$ interconnectedness between two genes
 >- The resulting Topological Overlap Matrix (TOM) is then subtracted from
    one to obtain a dissimilarity measure which can be used for clustering.
 >- TOM $\Omega = [\omega_{ij}]$
@@ -308,8 +310,9 @@ $$l_{ij} = \sum_u{a_{iu}a_{uj}}$$
 And
 <div class='blue'>
 $$k_i = \sum_u{a_{iu}}$$
-
 </div>
+
+($l_{ij} \approx$ shared neighbors, $k_i =$ how connect $i$ is itself)
 
 ---
 
@@ -414,7 +417,7 @@ clustering methods, the results can be very different.
 
 ## Other topics to discuss
 
-## Today (time permitting)
+### Today (time permitting)
 
 1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
 2. Alternatives to correlation networks (partial correlations, etc.)
@@ -423,7 +426,7 @@ clustering methods, the results can be very different.
    - choosing branch height to cut at (e.g. Dynamic Tree Cut)
    - Fuzzy module membership
 
-## Future meetings
+### Future meetings
 
 1. Alternative methods of co-expression network analysis
     - Canonical correlation analysis for RNA-seq co-expression networks.
@@ -443,6 +446,7 @@ References
 
 
 
+- Peter Langfelder, Steve Horvath,   (2008) Wgcna: an R Package For Weighted Correlation Network Analysis.  <em>Bmc Bioinformatics</em>  <strong>9</strong>  559-NA  <a href="http://dx.doi.org/10.1186/1471-2105-9-559">10.1186/1471-2105-9-559</a>
 - Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a>
 
 - Butte AJ, Kohane IS. (2000) Mutual information relevance networks: functional
