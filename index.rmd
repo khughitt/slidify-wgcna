@@ -64,12 +64,10 @@ $(function() {
   - Edges determined via hard cutoff
 
 ### Zhang & Horvath (2005)
-<div class='blue'>
 - WGCNA
-  - Soft-threshold (weighted network)
-  - Pearson correlation used as similarity measure by default
-  - Also attempts to find functional modules in networks
-</div>
+    - Soft-threshold (weighted network)
+    - Pearson correlation used as similarity measure by default
+    - Also attempts to find functional modules in networks
 
 ### Hong et al (2013)
 - Canonical correlation analysis for RNA-seq co-expression networks.
@@ -98,8 +96,10 @@ Once a co-expression network has been constructed, WGCNA can be used to detect
 module of genes with similar expression profiles.
 
 1. Choose a <span class='blue'>node dissimilarity</span> measure.
-2. Example: 1 - correlation
-3. WGCNA method: <span class='blue'>1 - Topological Overlap</span>
+    - e.g.: 1 - correlation
+    - WGCNA method: <span class='blue'>1 - Topological Overlap</span>
+2. Use hierarchical clustering to construct a dendrogram.
+3. Modules reflect dense branches on the dendrogram.
 
 --- .segue .dark
 
@@ -109,7 +109,13 @@ module of genes with similar expression profiles.
 
 ## Similarity matrix
 
-### Overview
+### Setup
+
+Given a matrix $X$ of $n$ gene expression measurements across $m$ sample
+measurements ("sample traits", e.g. disease state, time, etc.):
+
+$$X = [x_{ij}]$$
+
 The first step is to choose a similarity metric, e.g. |Pearson correlation|,
 and use it to construct a similarity matrix, $S$.
 
@@ -135,7 +141,9 @@ similarity matrix is produced.
 
 ### Alternative similarity measures
 - Jacknifed correlation coefficient
-- $\frac{2 + cor(i, j)}{2}$
+- Biweight midcorrelation
+- Spearman correlation
+- $\frac{1 + cor(i, j)}{2}$
 
 ### Questions:
  - Is pearson correlation a good measure of similarity at small $n$?
@@ -146,7 +154,7 @@ similarity matrix is produced.
 
 ## Similarity matrix
 
-*T. cruzi* (4-24hrs)
+<span class='caption'>T. cruzi (4-24hrs)</span>
 ![Similarity matrix](assets/img/plot_similarity_matrix.png)
 
 ---
@@ -244,6 +252,7 @@ title('Power function (beta=4)')
     - Sigmoid and power function results in similar adjacency matrices if
       parameters are chosen based on same criterion (discussed next).
     - Power adjacency function has the "factorization property"
+        - $a_{ij} = a_i * a_j$
         - Understanding network concepts in modules (Dong & Horvath, 2007)
 
 ---
@@ -302,14 +311,14 @@ title('gamma = 10')
 - The goal then becomes selecting a function and parameters such that the
   resulting co-expression network has the scale-free property.
 
-![threshold selection](figure/choose_threshold.png)
+![threshold selection](assets/img/choose_threshold.png)
 
 ---
 
 ## Adjacency matrix
 
-*T. cruzi* (4-24hrs)
-![adjacency matrix](plot_adjacency_matrix.png)
+<span class='caption'>T. cruzi (4-24hrs)</span>
+![adjacency matrix](assets/img/plot_adjacency_matrix.png)
 
 --- .segue .dark
 
@@ -373,7 +382,7 @@ TOM Plot can help us to visualize gene modules: red blocks along the diagonal
 correspond to clusters of genes with a high topological overlap. These are our
 clusters.
 
-![TOM plot](figure/network_visualization_all.png)
+![TOM plot](assets/img/network_visualization_all.png)
 
 ---
 
@@ -382,7 +391,7 @@ clusters.
 Module eigengenes can be computed and a dendrodram of the eigengenes can be
 constructed and used to guide the merging of similar modules.
 
-![Module eigengenes](figure/eigengene_visualization.png)
+![Module eigengenes](assets/img/eigengene_visualization.png)
 
 ---
 
@@ -391,7 +400,7 @@ constructed and used to guide the merging of similar modules.
 When comparing the results of WGCNA module detection to other commonly used
 clustering methods, the results can be very different.
 
-![Module dendrogram](figure/combine_modules.png)
+![Module dendrogram](assets/img/combine_modules.png)
 
 ---
 
@@ -413,6 +422,10 @@ clustering methods, the results can be very different.
 
 1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
 2. Alternatives to correlation networks (partial correlations, etc.)
+3. Module detection
+   - alternative clustering methods
+   - choosing branch height to cut at (e.g. Dynamic Tree Cut)
+   - Fuzzy module membership
 
 
 References

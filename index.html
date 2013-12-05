@@ -124,12 +124,15 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
 
 <h3>Zhang &amp; Horvath (2005)</h3>
 
-<div class='blue'>
-- WGCNA
-  - Soft-threshold (weighted network)
-  - Pearson correlation used as similarity measure by default
-  - Also attempts to find functional modules in networks
-</div>
+<ul>
+<li>WGCNA
+
+<ul>
+<li>Soft-threshold (weighted network)</li>
+<li>Pearson correlation used as similarity measure by default</li>
+<li>Also attempts to find functional modules in networks</li>
+</ul></li>
+</ul>
 
 <h3>Hong et al (2013)</h3>
 
@@ -173,9 +176,14 @@ matrix <span class='blue'>\(S\)</span>.</li>
 module of genes with similar expression profiles.</p>
 
 <ol>
-<li>Choose a <span class='blue'>node dissimilarity</span> measure.</li>
-<li>Example: 1 - correlation</li>
+<li>Choose a <span class='blue'>node dissimilarity</span> measure.
+
+<ul>
+<li>e.g.: 1 - correlation</li>
 <li>WGCNA method: <span class='blue'>1 - Topological Overlap</span></li>
+</ul></li>
+<li>Use hierarchical clustering to construct a dendrogram.</li>
+<li>Modules reflect dense branches on the dendrogram.</li>
 </ol>
 
   </article>
@@ -197,7 +205,12 @@ module of genes with similar expression profiles.</p>
     <h2>Similarity matrix</h2>
   </hgroup>
   <article>
-    <h3>Overview</h3>
+    <h3>Setup</h3>
+
+<p>Given a matrix \(X\) of \(n\) gene expression measurements across \(m\) sample
+measurements (&quot;sample traits&quot;, e.g. disease state, time, etc.):</p>
+
+<p>\[X = [x_{ij}]\]</p>
 
 <p>The first step is to choose a similarity metric, e.g. |Pearson correlation|,
 and use it to construct a similarity matrix, \(S\).</p>
@@ -231,7 +244,9 @@ similarity matrix is produced.</p>
 
 <ul>
 <li>Jacknifed correlation coefficient</li>
-<li>\(\frac{2 + cor(i, j)}{2}\)</li>
+<li>Biweight midcorrelation</li>
+<li>Spearman correlation</li>
+<li>\(\frac{1 + cor(i, j)}{2}\)</li>
 </ul>
 
 <h3>Questions:</h3>
@@ -251,7 +266,7 @@ coefficient?</li>
     <h2>Similarity matrix</h2>
   </hgroup>
   <article>
-    <p><em>T. cruzi</em> (4-24hrs)
+    <p><span class='caption'>T. cruzi (4-24hrs)</span>
 <img src="assets/img/plot_similarity_matrix.png" alt="Similarity matrix"></p>
 
   </article>
@@ -365,6 +380,7 @@ parameters are chosen based on same criterion (discussed next).</li>
 <li>Power adjacency function has the &quot;factorization property&quot;
 
 <ul>
+<li>\(a_{ij} = a_i * a_j\)</li>
 <li>Understanding network concepts in modules (Dong &amp; Horvath, 2007)</li>
 </ul></li>
 </ul></li>
@@ -445,7 +461,7 @@ selection of an adjacency function and parameters.</li>
 resulting co-expression network has the scale-free property.</li>
 </ul>
 
-<p><img src="figure/choose_threshold.png" alt="threshold selection"></p>
+<p><img src="assets/img/choose_threshold.png" alt="threshold selection"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -456,8 +472,8 @@ resulting co-expression network has the scale-free property.</li>
     <h2>Adjacency matrix</h2>
   </hgroup>
   <article>
-    <p><em>T. cruzi</em> (4-24hrs)
-<img src="plot_adjacency_matrix.png" alt="adjacency matrix"></p>
+    <p><span class='caption'>T. cruzi (4-24hrs)</span>
+<img src="assets/img/plot_adjacency_matrix.png" alt="adjacency matrix"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -552,7 +568,7 @@ dendrogram.</li>
 correspond to clusters of genes with a high topological overlap. These are our
 clusters.</p>
 
-<p><img src="figure/network_visualization_all.png" alt="TOM plot"></p>
+<p><img src="assets/img/network_visualization_all.png" alt="TOM plot"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -566,7 +582,7 @@ clusters.</p>
     <p>Module eigengenes can be computed and a dendrodram of the eigengenes can be
 constructed and used to guide the merging of similar modules.</p>
 
-<p><img src="figure/eigengene_visualization.png" alt="Module eigengenes"></p>
+<p><img src="assets/img/eigengene_visualization.png" alt="Module eigengenes"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -580,7 +596,7 @@ constructed and used to guide the merging of similar modules.</p>
     <p>When comparing the results of WGCNA module detection to other commonly used
 clustering methods, the results can be very different.</p>
 
-<p><img src="figure/combine_modules.png" alt="Module dendrogram"></p>
+<p><img src="assets/img/combine_modules.png" alt="Module dendrogram"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -615,6 +631,13 @@ to begin with.</li>
     <ol>
 <li>Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)</li>
 <li>Alternatives to correlation networks (partial correlations, etc.)</li>
+<li>Module detection
+
+<ul>
+<li>alternative clustering methods</li>
+<li>choosing branch height to cut at (e.g. Dynamic Tree Cut)</li>
+<li>Fuzzy module membership</li>
+</ul></li>
 </ol>
 
 <h2>References</h2>
