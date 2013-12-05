@@ -152,13 +152,6 @@ similarity matrix is produced.
 
 ---
 
-## Similarity matrix
-
-<span class='caption'>T. cruzi (4-24hrs)</span>
-![Similarity matrix](assets/img/plot_similarity_matrix.png)
-
----
-
 ## Adjacency matrix
 
 Once a similarity matrix has been constructed, this is converted into an
@@ -313,23 +306,6 @@ title('gamma = 10')
 
 ![threshold selection](assets/img/choose_threshold.png)
 
----
-
-## Adjacency matrix
-
-<span class='caption'>T. cruzi (4-24hrs)</span>
-![adjacency matrix](assets/img/plot_adjacency_matrix.png)
-
---- .segue .dark
-
-## Module detection ##
-
----
-
-## Clustering gene expression profiles
-
-K-means clustering of T. cruzi RNA-Seq time-course data.
-![module detection](assets/img/tcruzi_cluster_1.png)
 
 ---
 
@@ -364,6 +340,46 @@ $$k_i = \sum_u{a_{iu}}$$
 Comparison of using topological overlap with $1 - S_{ij}$.
 
 ![topological overlap mds plot](assets/img/Horvath_2005_fig15.png)
+
+--- .seque .dark
+
+## What we have so far...
+
+---
+
+## Similarity matrix
+
+<span class='caption'>T. cruzi (4-24hrs)</span>
+![Similarity matrix](assets/img/plot_similarity_matrix.png)
+
+---
+
+## Adjacency matrix
+
+<span class='caption'>T. cruzi (4-24hrs)</span>
+![adjacency matrix](assets/img/plot_adjacency_matrix.png)
+
+---
+
+## Topological overlap matrix
+
+<span class='caption'>T. cruzi (4-24hrs)</span>
+![topological overlap matrix](assets/img/plot_topological_overlap_matrix.png)
+
+--- .segue .dark
+
+## Module detection ##
+
+---
+
+## Clustering gene expression profiles
+
+K-means clustering of T. cruzi RNA-Seq time-course data (just an example to
+give us a picture of what we are doing.)
+
+![module detection](assets/img/tcruzi_cluster_1.png)
+
+---
 
 ## Clustering
 
