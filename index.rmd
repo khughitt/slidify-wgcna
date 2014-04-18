@@ -54,14 +54,31 @@ $(function() {
 ## Co-expression Networks
 
 ### M. Eisen (1998)
-- Clusters of co-expressed genes tend to have similar function in yeast.
 
-### Butte & Kohane (2000)
+![Eisen figure 2](assets/img/Eisen_F1.large.jpg)
+
+- Clusters of co-expressed genes tend to have similar function in yeast.
+- Used heatmaps to visualize clusters of gene expression profiles across time.
+- Modified version of Pearson correlation used as similarity metrik.
+
+---
+
+## Co-expression Networks
+
+### Mutual Information based methods
+
+#### Butte & Kohane (2000)
+
 - Mutual information relevance networks: functional genomic clustering using
   pairwise entropy measurements (**Butte and Kohane (2000)**)
   - First co-expression networks
-  - Mutual Information used as similarity measure
+  - Mutual Information (MI) used as similarity measure
   - Edges determined via hard cutoff
+
+#### Margolin et al. (2006)
+- ARACNE: An Algorithm for the Reconstruction of Gene Regulatory Networks in a
+  Mammalian Cellular Context
+- MI estimation done using a Gaussian Kernel estimator (more efficient)
 
 ---
 

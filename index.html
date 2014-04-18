@@ -9,44 +9,42 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
   <script data-main="libraries/frameworks/io2012/js/slides" 
     src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
   </script>
   
-    <link rel="stylesheet" href = "assets/css/ribbons.css">
+  
 
 </head>
 <body style="opacity: 0">
   <slides class="layout-widescreen">
     
     <!-- LOGO SLIDE -->
-    <!-- END LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>A General Framework For Weighted Gene Co-Expression Network Analysis</h1>
+    <h2>Bin Zhang &amp; Steve Horvath</h2>
+    <p>Keith Hughitt<br/></p>
+  </hgroup>
+    <a href="https://github.com/khughitt/slidify-wgcna/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+</slide>
     
-
-    <!-- TITLE SLIDE -->
-    <!-- Should I move this to a Local Layout File? -->
-    <slide class="title-slide segue nobackground">
-      <hgroup class="auto-fadein">
-        <h1>A General Framework For Weighted Gene Co-Expression Network Analysis</h1>
-        <h2>Bin Zhang &amp; Steve Horvath</h2>
-        <p>Keith Hughitt<br/></p>
-      </hgroup>
-      <a href="https://github.com/khughitt/slidify-wgcna/zipball/gh-pages" class="example">
-        Download
-      </a>
-          </slide>
 
     <!-- SLIDES -->
-      <slide class="segue dark" id="slide-1" style="background:;">
-  <hgroup>
-    
-  </hgroup>
-  <article>
+    <slide class="segue dark" id="slide-1" style="background:;">
+  <article data-timings="">
     <!-- Custom Styles -->
 
 <style type='text/css'>
@@ -80,11 +78,11 @@ $(function() {
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-2" style="background:;">
+<slide class="" id="slide-2" style="background:;">
   <hgroup>
     <h2>Types of Molecular Biological Networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ol>
 <li>Cell signalling networks</li>
 <li>Metabolic networks</li>
@@ -98,18 +96,33 @@ $(function() {
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-3" style="background:;">
   <hgroup>
     <h2>Co-expression Networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>M. Eisen (1998)</h3>
+
+<p><img src="assets/img/Eisen_F1.large.jpg" alt="Eisen figure 2"></p>
 
 <ul>
 <li>Clusters of co-expressed genes tend to have similar function in yeast.</li>
+<li>Used heatmaps to visualize clusters of gene expression profiles across time.</li>
+<li>Modified version of Pearson correlation used as similarity metrik.</li>
 </ul>
 
-<h3>Butte &amp; Kohane (2000)</h3>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Co-expression Networks</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Mutual Information based methods</h3>
+
+<h4>Butte &amp; Kohane (2000)</h4>
 
 <ul>
 <li>Mutual information relevance networks: functional genomic clustering using
@@ -117,20 +130,28 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
 
 <ul>
 <li>First co-expression networks</li>
-<li>Mutual Information used as similarity measure</li>
+<li>Mutual Information (MI) used as similarity measure</li>
 <li>Edges determined via hard cutoff</li>
 </ul></li>
+</ul>
+
+<h4>Margolin et al. (2006)</h4>
+
+<ul>
+<li>ARACNE: An Algorithm for the Reconstruction of Gene Regulatory Networks in a
+Mammalian Cellular Context</li>
+<li>MI estimation done using a Gaussian Kernel estimator (more efficient)</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>Co-expression Networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>Zhang &amp; Horvath (2005)</h3>
 
 <ul>
@@ -153,11 +174,11 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>WGCNA Overview</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p><img src="assets/img/wgcna_overview.jpg" alt="WGCNA overview"></p>
 
 <div style='float: right; width: 38%; font-size: 12px;'>(Langfelder & Horvath, 2008)</div>
@@ -166,11 +187,11 @@ pairwise entropy measurements (<strong>Butte and Kohane (2000)</strong>)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h2>Constructing a co-expression network</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ol>
 <li>Choose a <span class='blue'>similarity metric</span>, construct a similarity
 matrix <span class='blue'>\(S\)</span>.</li>
@@ -199,21 +220,21 @@ module of genes with similar expression profiles.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-7" style="background:;">
+<slide class="segue dark" id="slide-8" style="background:;">
   <hgroup>
     <h2>Constructing a co-expression network</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>Setup</h3>
 
 <p>Given a matrix \(X\) of \(n\) gene expression measurements across \(m\) sample
@@ -244,11 +265,11 @@ similarity matrix is produced.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>Alternative similarity measures</h3>
 
 <ul>
@@ -270,11 +291,11 @@ coefficient?</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>Once a similarity matrix has been constructed, this is converted into an
 <a href="http://en.wikipedia.org/wiki/Adjacency_matrix">adjaceny matrix</a>, which defines 
 the co-expression graph or network.</p>
@@ -306,11 +327,11 @@ determines whether the resulting network will be weighted or unweighted.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Signum Function (Unweighted Network)</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <div style='font-size: 14px;'>
  $$ a_{ij} = signum(s_{ij}, \tau) \equiv
    \left\{ 
@@ -321,51 +342,51 @@ determines whether the resulting network will be weighted or unweighted.</p>
  $$
 </div>
 
-<p><img src="figure/signum_plot.png" alt="plot of chunk signum_plot"> </p>
+<p><img src="assets/fig/signum_plot.png" alt="plot of chunk signum_plot"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Sigmoid Function (Weighted Network)</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <div style='font-size: 16px;'>
 $$
 a_{ij} = sigmoid(s_{ij}, \alpha, \tau_0) \equiv \frac{1}{1 + e^{-\alpha(s_{ij} - \tau_0)}}
 $$
 </div>
 
-<p><img src="figure/sigmoid_plot.png" alt="plot of chunk sigmoid_plot"> </p>
+<p><img src="assets/fig/sigmoid_plot.png" alt="plot of chunk sigmoid_plot"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Power Function (Weighted Network)</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <div style='font-size: 16px;'>
 $$
   a_{ij} = power(s_{ij}, \beta) \equiv |s_{ij}|^\beta
 $$
 </div>
 
-<p><img src="figure/power_plot.png" alt="plot of chunk power_plot"> </p>
+<p><img src="assets/fig/power_plot.png" alt="plot of chunk power_plot"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Power Function (Weighted Network)</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ul>
 <li>WGCNA uses the power function by default to map from the similarity matrix
 to an adjacency matrix.</li>
@@ -387,32 +408,32 @@ parameters are chosen based on same criterion (discussed next).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Different adjacency functions can be used to arrive at the same result</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p><img src="assets/img/Horvath_2005_fig14.png" alt="comparison of adjacency functions"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-16" style="background:;">
+<slide class="seque dark" id="slide-17" style="background:;">
   <hgroup>
     <h2>How do we select an appropriate adjacency function?</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ul>
 <li>Many biological networks (including co-expression networks) are thought to
 follow a <a href="https://en.wikipedia.org/wiki/Power_law">power law distribution</a>.</li>
@@ -432,25 +453,25 @@ nodes (good for us!).</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>The exponent \(\gamma\) determines how quickly the distribution decays,
 for example:</p>
 
-<p><img src="figure/powerlaw_plot1.png" alt="plot of chunk powerlaw_plot1"> </p>
+<p><img src="assets/fig/powerlaw_plot1.png" alt="plot of chunk powerlaw_plot1"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ul>
 <li>This property of biological networks can be used by us to help guide our
 selection of an adjacency function and parameters.</li>
@@ -464,11 +485,11 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>Evaluating the fit using a  log-log plot.</p>
 
 <p><img src="assets/img/scale-free-fit2.png" alt="scale-free fit"></p>
@@ -477,12 +498,12 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
-  <article>
-    <ul class = "build">
+  <article data-timings="">
+    <ul class = "build incremental">
 <li>The preferred method used by WGCNA to cluster gene expression profiles is
 to first construct a similarity matrix using a measure called Topological
 Overlap.</li>
@@ -511,11 +532,11 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>Comparison of using topological overlap with \(1 - S_{ij}\).</p>
 
 <p><img src="assets/img/Horvath_2005_fig15.png" alt="topological overlap mds plot"></p>
@@ -524,21 +545,21 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="seque dark" id="slide-23" style="background:;">
+<slide class="seque dark" id="slide-24" style="background:;">
   <hgroup>
     <h2>What we have so far...</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p><span class='caption'>T. cruzi (4-24hrs)</span>
 <img src="assets/img/plot_similarity_matrix.png" alt="Similarity matrix"></p>
 
@@ -546,11 +567,11 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p><span class='caption'>T. cruzi (4-24hrs)</span>
 <img src="assets/img/plot_adjacency_matrix.png" alt="adjacency matrix"></p>
 
@@ -558,11 +579,11 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Topological overlap matrix</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p><span class='caption'>T. cruzi (4-24hrs)</span>
 <img src="assets/img/plot_topological_overlap_matrix.png" alt="topological overlap matrix"></p>
 
@@ -570,21 +591,21 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="segue dark" id="slide-27" style="background:;">
+<slide class="segue dark" id="slide-28" style="background:;">
   <hgroup>
     <h2>Module detection</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Clustering gene expression profiles</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>K-means clustering of T. cruzi RNA-Seq time-course data (just an example to
 give us a picture of what we are doing.)</p>
 
@@ -594,11 +615,11 @@ give us a picture of what we are doing.)</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Clustering</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ul>
 <li><a href="http://en.wikipedia.org/wiki/Hierarchical_clustering#Linkage_criteria">Average linkage hierarchical clustering</a>
 used to group genes based on their TOM dissimilarity.</li>
@@ -613,11 +634,11 @@ dendrogram.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>TOM Plot</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>TOM Plot can help us to visualize gene modules: red blocks along the diagonal
 correspond to clusters of genes with a high topological overlap. These are our
 clusters.</p>
@@ -628,11 +649,11 @@ clusters.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Module Eigengenes</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>Module eigengenes can be computed and a dendrodram of the eigengenes can be
 constructed and used to guide the merging of similar modules.</p>
 
@@ -642,11 +663,11 @@ constructed and used to guide the merging of similar modules.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Comparison to other clustering methods</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <p>When comparing the results of WGCNA module detection to other commonly used
 clustering methods, the results can be very different.</p>
 
@@ -656,11 +677,11 @@ clustering methods, the results can be very different.</p>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Network Visualization</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>Problem</h3>
 
 <ul>
@@ -677,11 +698,11 @@ to begin with.</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Other topics to discuss</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <h3>Today (time permitting)</h3>
 
 <ol>
@@ -719,11 +740,11 @@ measure (Yip &amp; Horvath, 2007)</li>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
-  <article>
+  <article data-timings="">
     <ul>
 <li>Peter Langfelder, Steve Horvath,   (2008) Wgcna: an R Package For Weighted Correlation Network Analysis.  <em>Bmc Bioinformatics</em>  <strong>9</strong>  559-NA  <a href="http://dx.doi.org/10.1186/1471-2105-9-559">10.1186/1471-2105-9-559</a></li>
 <li><p>Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a></p></li>
@@ -737,34 +758,251 @@ genomic clustering using pairwise entropy measurements</p></li>
 
     <slide class="backdrop"></slide>
   </slides>
-
-  <!--[if IE]>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Types of Molecular Biological Networks'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Co-expression Networks'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Co-expression Networks'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Co-expression Networks'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='WGCNA Overview'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Constructing a co-expression network'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Constructing a co-expression network'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Similarity matrix'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Similarity matrix'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Adjacency matrix'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Signum Function (Unweighted Network)'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Sigmoid Function (Weighted Network)'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Power Function (Weighted Network)'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Power Function (Weighted Network)'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Different adjacency functions can be used to arrive at the same result'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='How do we select an appropriate adjacency function?'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Scale-free networks'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Scale-free networks'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Scale-free networks'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Scale-free networks'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Topological Overlap Matrix'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Topological Overlap Matrix'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='What we have so far...'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Similarity matrix'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Adjacency matrix'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Topological overlap matrix'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Module detection'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Clustering gene expression profiles'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Clustering'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='TOM Plot'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Module Eigengenes'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Comparison to other clustering methods'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Network Visualization'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Other topics to discuss'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='References'>
+         36
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
     <script 
       src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
     </script>
     <script>CFInstall.check({mode: 'overlay'});</script>
   <![endif]-->
 </body>
-<!-- Grab CDN jQuery, fall back to local if offline -->
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
-<!-- Load Javascripts for Widgets -->
-<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      processEscapes: true
-    }
-  });
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script> -->
-<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
 </script>
 <!-- LOAD HIGHLIGHTER JS FILES -->
-<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<!-- DONE LOADING HIGHLIGHTER JS FILES -->
-</html>
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

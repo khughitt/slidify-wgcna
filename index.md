@@ -54,14 +54,31 @@ $(function() {
 ## Co-expression Networks
 
 ### M. Eisen (1998)
-- Clusters of co-expressed genes tend to have similar function in yeast.
 
-### Butte & Kohane (2000)
+![Eisen figure 2](assets/img/Eisen_F1.large.jpg)
+
+- Clusters of co-expressed genes tend to have similar function in yeast.
+- Used heatmaps to visualize clusters of gene expression profiles across time.
+- Modified version of Pearson correlation used as similarity metrik.
+
+---
+
+## Co-expression Networks
+
+### Mutual Information based methods
+
+#### Butte & Kohane (2000)
+
 - Mutual information relevance networks: functional genomic clustering using
   pairwise entropy measurements (**Butte and Kohane (2000)**)
   - First co-expression networks
-  - Mutual Information used as similarity measure
+  - Mutual Information (MI) used as similarity measure
   - Edges determined via hard cutoff
+
+#### Margolin et al. (2006)
+- ARACNE: An Algorithm for the Reconstruction of Gene Regulatory Networks in a
+  Mammalian Cellular Context
+- MI estimation done using a Gaussian Kernel estimator (more efficient)
 
 ---
 
@@ -190,7 +207,7 @@ determines whether the resulting network will be weighted or unweighted.
  $$
 </div>
 
-![plot of chunk signum_plot](figure/signum_plot.png) 
+![plot of chunk signum_plot](assets/fig/signum_plot.png) 
 
 
 ---
@@ -202,7 +219,7 @@ a_{ij} = sigmoid(s_{ij}, \alpha, \tau_0) \equiv \frac{1}{1 + e^{-\alpha(s_{ij} -
 $$
 </div>
 
-![plot of chunk sigmoid_plot](figure/sigmoid_plot.png) 
+![plot of chunk sigmoid_plot](assets/fig/sigmoid_plot.png) 
 
 
 ---
@@ -215,7 +232,7 @@ $$
 $$
 </div>
 
-![plot of chunk power_plot](figure/power_plot.png) 
+![plot of chunk power_plot](assets/fig/power_plot.png) 
 
 
 ---
@@ -265,7 +282,7 @@ where $k$ is the number of connections to other genes.
 The exponent $\gamma$ determines how quickly the distribution decays,
 for example:
 
-![plot of chunk powerlaw_plot1](figure/powerlaw_plot1.png) 
+![plot of chunk powerlaw_plot1](assets/fig/powerlaw_plot1.png) 
 
 
 ---
