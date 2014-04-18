@@ -103,7 +103,8 @@ $(function() {
   <article data-timings="">
     <h3>M. Eisen (1998)</h3>
 
-<p><img src="assets/img/Eisen_F1.large.jpg" alt="Eisen figure 2"></p>
+<p><img src="assets/img/Eisen_F1.large.jpg" alt="Eisen figure 2"
+     style='float:right;'></p>
 
 <ul>
 <li>Clusters of co-expressed genes tend to have similar function in yeast.</li>
@@ -458,16 +459,31 @@ nodes (good for us!).</li>
     <h2>Scale-free networks</h2>
   </hgroup>
   <article data-timings="">
-    <p>The exponent \(\gamma\) determines how quickly the distribution decays,
-for example:</p>
+    <h3>Albert, Jeong &amp; Barabási (2002)</h3>
 
-<p><img src="assets/fig/powerlaw_plot1.png" alt="plot of chunk powerlaw_plot1"> </p>
+<p><img src="assets/img/Barabasi_406378aa.2.jpg" alt="scale free network example"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Scale-free networks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The exponent \(\gamma\) determines how quickly the distribution decays,
+for example:</p>
+
+<p><img src="assets/fig/powerlaw_plot1.png" alt="plot of chunk powerlaw_plot1"> </p>
+
+<p>Real-world scale-free networks most often have values of \(k\) between 2 and 3.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -485,7 +501,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Scale-free networks</h2>
   </hgroup>
@@ -498,7 +514,7 @@ resulting co-expression network has the scale-free property.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -526,13 +542,13 @@ And
 </div></li>
 </ul>
 
-<p>(\(l_{ij} \approx\) shared neighbors, \(k_i =\) how connect \(i\) is itself)</p>
+<p>(\(l_{ij} \approx\) shared neighbors, \(k_i =\) how connected \(i\) is itself)</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Topological Overlap Matrix</h2>
   </hgroup>
@@ -545,7 +561,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="seque dark" id="slide-24" style="background:;">
+<slide class="seque dark" id="slide-25" style="background:;">
   <hgroup>
     <h2>What we have so far...</h2>
   </hgroup>
@@ -555,7 +571,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Similarity matrix</h2>
   </hgroup>
@@ -567,7 +583,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Adjacency matrix</h2>
   </hgroup>
@@ -579,7 +595,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Topological overlap matrix</h2>
   </hgroup>
@@ -591,7 +607,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark" id="slide-28" style="background:;">
+<slide class="segue dark" id="slide-29" style="background:;">
   <hgroup>
     <h2>Module detection</h2>
   </hgroup>
@@ -601,7 +617,7 @@ And
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Clustering gene expression profiles</h2>
   </hgroup>
@@ -615,7 +631,7 @@ give us a picture of what we are doing.)</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Clustering</h2>
   </hgroup>
@@ -634,7 +650,7 @@ dendrogram.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>TOM Plot</h2>
   </hgroup>
@@ -649,7 +665,7 @@ clusters.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Module Eigengenes</h2>
   </hgroup>
@@ -663,7 +679,7 @@ constructed and used to guide the merging of similar modules.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Comparison to other clustering methods</h2>
   </hgroup>
@@ -677,7 +693,7 @@ clustering methods, the results can be very different.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Network Visualization</h2>
   </hgroup>
@@ -698,55 +714,15 @@ to begin with.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
-  <hgroup>
-    <h2>Other topics to discuss</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Today (time permitting)</h3>
-
-<ol>
-<li>Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)</li>
-<li>Alternatives to correlation networks (partial correlations, etc.)</li>
-<li>Module detection
-
-<ul>
-<li>alternative clustering methods</li>
-<li>choosing branch height to cut at (e.g. Dynamic Tree Cut)</li>
-<li>Fuzzy module membership</li>
-</ul></li>
-</ol>
-
-<h3>Future meetings</h3>
-
-<ol>
-<li>Alternative methods of co-expression network analysis
-
-<ul>
-<li>Canonical correlation analysis for RNA-seq co-expression networks.</li>
-<li>PGMs.</li>
-</ul></li>
-<li>Deeper look at the network concepts underlying this paper
-
-<ul>
-<li>Gene network interconnected and the generalized topological overlap
-measure (Yip &amp; Horvath, 2007)</li>
-<li>Geometric Interpretation of Gene Coexpression Network Analysis (Horvath
-&amp; Dong, 2008)</li>
-</ul></li>
-</ol>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
 <slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
   <article data-timings="">
     <ul>
+<li>Réka Albert, Hawoong Jeong, Albert-László Barabási,   (2000) Error And Attack Tolerance of Complex Networks.  <em>Nature</em>  <strong>406</strong>  378-382  <a href="http://dx.doi.org/10.1038/35019019">10.1038/35019019</a></li>
 <li>Peter Langfelder, Steve Horvath,   (2008) Wgcna: an R Package For Weighted Correlation Network Analysis.  <em>Bmc Bioinformatics</em>  <strong>9</strong>  559-NA  <a href="http://dx.doi.org/10.1186/1471-2105-9-559">10.1186/1471-2105-9-559</a></li>
+<li>Adam A Margolin, Ilya Nemenman, Katia Basso, Chris Wiggins, Gustavo Stolovitzky, Riccardo Favera, Andrea Califano,   (2006) Aracne: an Algorithm For The Reconstruction of Gene Regulatory Networks in A Mammalian Cellular Context.  <em>Bmc Bioinformatics</em>  <strong>7</strong>  S7-NA  <a href="http://dx.doi.org/10.1186/1471-2105-7-S1-S7">10.1186/1471-2105-7-S1-S7</a></li>
 <li><p>Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a></p></li>
 <li><p>Butte AJ, Kohane IS. (2000) Mutual information relevance networks: functional
 genomic clustering using pairwise entropy measurements</p></li>
@@ -888,7 +864,7 @@ genomic clustering using pairwise entropy measurements</p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Topological Overlap Matrix'>
+        data-slide=22 title='Scale-free networks'>
          22
       </a>
     </li>
@@ -900,73 +876,73 @@ genomic clustering using pairwise entropy measurements</p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='What we have so far...'>
+        data-slide=24 title='Topological Overlap Matrix'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Similarity matrix'>
+        data-slide=25 title='What we have so far...'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Adjacency matrix'>
+        data-slide=26 title='Similarity matrix'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Topological overlap matrix'>
+        data-slide=27 title='Adjacency matrix'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Module detection'>
+        data-slide=28 title='Topological overlap matrix'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Clustering gene expression profiles'>
+        data-slide=29 title='Module detection'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Clustering'>
+        data-slide=30 title='Clustering gene expression profiles'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='TOM Plot'>
+        data-slide=31 title='Clustering'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Module Eigengenes'>
+        data-slide=32 title='TOM Plot'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Comparison to other clustering methods'>
+        data-slide=33 title='Module Eigengenes'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Network Visualization'>
+        data-slide=34 title='Comparison to other clustering methods'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Other topics to discuss'>
+        data-slide=35 title='Network Visualization'>
          35
       </a>
     </li>

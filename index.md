@@ -55,7 +55,8 @@ $(function() {
 
 ### M. Eisen (1998)
 
-![Eisen figure 2](assets/img/Eisen_F1.large.jpg)
+<img src="assets/img/Eisen_F1.large.jpg" alt="Eisen figure 2"
+     style='float:right;'>
 
 - Clusters of co-expressed genes tend to have similar function in yeast.
 - Used heatmaps to visualize clusters of gene expression profiles across time.
@@ -279,11 +280,21 @@ where $k$ is the number of connections to other genes.
 
 ## Scale-free networks
 
+### Albert, Jeong & Barabási (2002)
+
+![scale free network example](assets/img/Barabasi_406378aa.2.jpg)
+
+---
+
+## Scale-free networks
+
 The exponent $\gamma$ determines how quickly the distribution decays,
 for example:
 
 ![plot of chunk powerlaw_plot1](assets/fig/powerlaw_plot1.png) 
 
+
+Real-world scale-free networks most often have values of $k$ between 2 and 3.
 
 ---
 
@@ -329,7 +340,7 @@ And
 $$k_i = \sum_u{a_{iu}}$$
 </div>
 
-($l_{ij} \approx$ shared neighbors, $k_i =$ how connect $i$ is itself)
+($l_{ij} \approx$ shared neighbors, $k_i =$ how connected $i$ is itself)
 
 ---
 
@@ -432,30 +443,6 @@ clustering methods, the results can be very different.
 
 ---
 
-## Other topics to discuss
-
-### Today (time permitting)
-
-1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
-2. Alternatives to correlation networks (partial correlations, etc.)
-3. Module detection
-   - alternative clustering methods
-   - choosing branch height to cut at (e.g. Dynamic Tree Cut)
-   - Fuzzy module membership
-
-### Future meetings
-
-1. Alternative methods of co-expression network analysis
-    - Canonical correlation analysis for RNA-seq co-expression networks.
-    - PGMs.
-2. Deeper look at the network concepts underlying this paper
-    - Gene network interconnected and the generalized topological overlap
-      measure (Yip & Horvath, 2007)
-    - Geometric Interpretation of Gene Coexpression Network Analysis (Horvath
-      & Dong, 2008)
-
----
-
 References
 ----------
 
@@ -463,7 +450,9 @@ References
 
 
 
+- Réka Albert, Hawoong Jeong, Albert-László Barabási,   (2000) Error And Attack Tolerance of Complex Networks.  <em>Nature</em>  <strong>406</strong>  378-382  <a href="http://dx.doi.org/10.1038/35019019">10.1038/35019019</a>
 - Peter Langfelder, Steve Horvath,   (2008) Wgcna: an R Package For Weighted Correlation Network Analysis.  <em>Bmc Bioinformatics</em>  <strong>9</strong>  559-NA  <a href="http://dx.doi.org/10.1186/1471-2105-9-559">10.1186/1471-2105-9-559</a>
+- Adam A Margolin, Ilya Nemenman, Katia Basso, Chris Wiggins, Gustavo Stolovitzky, Riccardo Favera, Andrea Califano,   (2006) Aracne: an Algorithm For The Reconstruction of Gene Regulatory Networks in A Mammalian Cellular Context.  <em>Bmc Bioinformatics</em>  <strong>7</strong>  S7-NA  <a href="http://dx.doi.org/10.1186/1471-2105-7-S1-S7">10.1186/1471-2105-7-S1-S7</a>
 - Bin Zhang, Steve Horvath,   (2005) A General Framework For Weighted Gene co-Expression Network Analysis.  <em>Statistical Applications in Genetics And Molecular Biology</em>  <strong>4</strong>  <a href="http://dx.doi.org/10.2202/1544-6115.1128">10.2202/1544-6115.1128</a>
 
 - Butte AJ, Kohane IS. (2000) Mutual information relevance networks: functional

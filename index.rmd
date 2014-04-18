@@ -55,7 +55,8 @@ $(function() {
 
 ### M. Eisen (1998)
 
-![Eisen figure 2](assets/img/Eisen_F1.large.jpg)
+<img src="assets/img/Eisen_F1.large.jpg" alt="Eisen figure 2"
+     style='float:right;'>
 
 - Clusters of co-expressed genes tend to have similar function in yeast.
 - Used heatmaps to visualize clusters of gene expression profiles across time.
@@ -300,6 +301,14 @@ where $k$ is the number of connections to other genes.
 
 ## Scale-free networks
 
+### Albert, Jeong & Barabási (2002)
+
+![scale free network example](assets/img/Barabasi_406378aa.2.jpg)
+
+---
+
+## Scale-free networks
+
 The exponent $\gamma$ determines how quickly the distribution decays,
 for example:
 
@@ -315,6 +324,8 @@ title('gamma = 2')
 plot(k, k^-10, type='l')
 title('gamma = 10')
 ```
+
+Real-world scale-free networks most often have values of $k$ between 2 and 3.
 
 ---
 
@@ -360,7 +371,7 @@ And
 $$k_i = \sum_u{a_{iu}}$$
 </div>
 
-($l_{ij} \approx$ shared neighbors, $k_i =$ how connect $i$ is itself)
+($l_{ij} \approx$ shared neighbors, $k_i =$ how connected $i$ is itself)
 
 ---
 
@@ -463,30 +474,6 @@ clustering methods, the results can be very different.
 
 ---
 
-## Other topics to discuss
-
-### Today (time permitting)
-
-1. Cluster coefficient in weighted vs. unweighted networks (Section 7, fig 10)
-2. Alternatives to correlation networks (partial correlations, etc.)
-3. Module detection
-   - alternative clustering methods
-   - choosing branch height to cut at (e.g. Dynamic Tree Cut)
-   - Fuzzy module membership
-
-### Future meetings
-
-1. Alternative methods of co-expression network analysis
-    - Canonical correlation analysis for RNA-seq co-expression networks.
-    - PGMs.
-2. Deeper look at the network concepts underlying this paper
-    - Gene network interconnected and the generalized topological overlap
-      measure (Yip & Horvath, 2007)
-    - Geometric Interpretation of Gene Coexpression Network Analysis (Horvath
-      & Dong, 2008)
-
----
-
 References
 ----------
 
@@ -494,6 +481,8 @@ References
 library(knitcitations)
 cleanbib()
 citep('10.2202/1544-6115.1128')
+citep('10.1186/1471-2105-7-S1-S7')
+citep('10.1038/35019019')
 citep('10.1186/1471-2105-9-559')
 ```
 
